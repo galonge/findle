@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 #ensuring that all emails are lowercased before saving to database
-	before_save { self.email.downcase }
+	before_save { self.email.downcase! }
 
 #validations for User model attributes
 	validates :name, presence: true, length: {maximum: 50}
