@@ -13,7 +13,10 @@ class User < ActiveRecord::Base
 	attr_accessible :name, :email, :password, :password_confirmation
 	has_secure_password
 
-#ensuring that all emails are lowercased before saving to database
+
+	before_save :create_remember_token
+
+#ensuring that all emails are lowercased before saving to database using activerecord callback 'before_save'
 	before_save { self.email.downcase! }
 
 #validations for User model attributes
@@ -23,6 +26,13 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, format: {with: VALID_EMAIL_REGEX},
 									   uniqueness: { case_sensitive: false}
 
-	validates :password, presence: true, length: { minimum: 6}
+	validates :password, length: { minimum: 6}
 	validates :password_confirmation, presence: true
+
+#defining the private method :create_remember_token using rubys SecureRandom module
+private
+	def create_remember_token
+		self.remember_token = SecureRandom.urlsafe_base64
+
+	end
 end
