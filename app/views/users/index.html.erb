@@ -1,0 +1,16 @@
+<% provide(:title, "All users") %>
+<h2>All users </h2>
+
+<!-- using the will_paginate rails gem to add pagination to the users view page -->
+<%= will_paginate %>
+
+<ul class="users">
+	<!-- iterating through each user in the @users variable in users controller-->
+	<% @users.each do |user| %>
+
+	<!-- rails automatically looks for a partial named _user.html.erb and use it  -->
+		<%= render user %>
+	<% end %>
+</ul>
+
+<%= will_paginate %>

@@ -5,14 +5,19 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <!--rendering the html shim for internet explorer <= version 9 -->
   <%= render 'layouts/shim' %>
 </head>
 <body>
 	<%= render 'layouts/header' %>
   <div class="container">
+    <!--displaying the content of flash messages using bootstrap alert class for flash messages -->
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+    <!--- end of flash messages display  -->
+
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= debug(params) if Rails.env.development? %>

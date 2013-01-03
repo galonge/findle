@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   		#calls the sign_in function in app/helpers/sessionsHelper to perform sign_in and set remember token in visitors browser
       log_in user
-  		redirect_to user
+  		redirect_back_or user
 
   	else
   		flash.now[:error] = "Invalid email/password combination"
