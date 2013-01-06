@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.1'
 gem 'faker', '1.0.1'
 gem 'wdm', '0.0.3'
-gem 'paperclip'
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'will_paginate'

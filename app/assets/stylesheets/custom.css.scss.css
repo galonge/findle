@@ -1,9 +1,11 @@
 @import 'bootstrap';
+/*@import 'bootstrap/responsive';
 
 /* mixins, variables, etc */
 $grayLight: #999;
 $grayMediumLight: #eaeaea;
 $gray: #555;
+
 
 @mixin box-sizing {
 	-moz-box-sizing: border-box;
@@ -11,14 +13,34 @@ $gray: #555;
 	box-sizing: border-box;
 }
 /* universal styles */
+.container {
+	background-color: $white;
+	p{
+		margin-right: 10px;
+	}
+
+}
+#container-header-style{
+
+	background-color: #ac83c9;
+	/*background-color: #6b9a8b;
+	/* background-color: #86ab62; */
+	/*	background-color: #b4da79; */
+}
 html {
 	overflow-y: scroll;
 }
 
+
 body{ 
 	padding-top: 60px;
 	padding-bottom: 40px;
+	background-color: $grayLighter;
 }
+#main {
+	padding: 10px;
+}
+
 
 section { 
 overflow: auto}
@@ -68,13 +90,17 @@ p {
 	float: left;
 	margin-right: 20px;
 	font-size: 1.7em;
-	color: $blue;
+	color: $white;
 	text-transform: lowercase;
 	letter-spacing: -1px;
 	padding-top: 9px;
 	font-weight: bold;
 	line-height: 1;
 	text-decoration: none;
+	margin-left: 10px;
+	padding-left: 10px;
+	height: 30px;
+	
 }
 
 /* footer */
@@ -92,11 +118,13 @@ footer {
 
 			small {
 				float: left;
+				margin-left: 10px;
 			}
 
 		ul  {
 			float: right;
 			list-style: none;
+			margin-right: 10px;
 			
 				li {
 				float: left;
@@ -188,4 +216,9 @@ input, textarea, select, .uneditable-input {
 			border-bottom: 1px solid $grayLighter;
 		}
 	}
+}
+
+/* form styling */
+#user_avatar {
+	line-height: 20px;
 }
