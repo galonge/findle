@@ -189,7 +189,10 @@ input, textarea, select, .uneditable-input {
 	margin-bottom: 15px;
 	@include box-sizing;
 }
+#user_photo {
 
+	line-height: 20px;
+}
 #error_explanation {
 
 	color: #f00;

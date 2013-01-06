@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104134436) do
+ActiveRecord::Schema.define(:version => 20130106211021) do
 
   create_table "photo_albums", :force => true do |t|
     t.string   "user_id"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20130104134436) do
   end
 
   add_index "photo_albums", ["user_id", "created_at"], :name => "index_photo_albums_on_user_id_and_created_at"
+
+  create_table "photoposts", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+  end
+
+  add_index "photoposts", ["user_id", "created_at"], :name => "index_photoposts_on_user_id_and_created_at"
 
   create_table "photos", :force => true do |t|
     t.string   "name"
@@ -36,13 +47,18 @@ ActiveRecord::Schema.define(:version => 20130104134436) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",              :default => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
+  add_index "users", ["created_at"], :name => "index_users_on_created_at"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
