@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	#defining relationships
+	has_many :photoposts, dependent: :destroy
 
 	before_save :create_remember_token
 
@@ -32,6 +33,11 @@ class User < ActiveRecord::Base
 
 	validates :password, length: { minimum: 6}
 	validates :password_confirmation, presence: true
+
+
+	def feed 
+		Micropost.where("user_id = ?", id)
+	end
 
 #defining the private method :create_remember_token using rubys SecureRandom module
 private

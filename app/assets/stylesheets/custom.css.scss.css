@@ -225,3 +225,35 @@ input, textarea, select, .uneditable-input {
 #user_avatar {
 	line-height: 20px;
 }
+
+/* photoposts */
+.photoposts {
+
+	list-style: none;
+	margin: 10px 0 0 0;
+
+	li {
+		padding: 10px 0;
+		border-top: 1px solid #e8e8e8;
+	}
+}
+
+.photo {
+	display: block;
+}
+.timestamp {
+
+	color: $grayLight;
+}
+.gravatar {
+	float: left;
+	margin-right: 10px;
+}
+
+aside {
+
+	file_field {
+		height: 20px;
+		margin-bottom: 5px;
+	}
+}

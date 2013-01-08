@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130106211021) do
 
-  create_table "photo_albums", :force => true do |t|
-    t.string   "user_id"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "photo_albums", ["user_id", "created_at"], :name => "index_photo_albums_on_user_id_and_created_at"
-
   create_table "photoposts", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at",         :null => false
@@ -33,29 +24,14 @@ ActiveRecord::Schema.define(:version => 20130106211021) do
 
   add_index "photoposts", ["user_id", "created_at"], :name => "index_photoposts_on_user_id_and_created_at"
 
-  create_table "photos", :force => true do |t|
-    t.string   "name"
-    t.string   "photo_album_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",              :default => false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.boolean  "admin",           :default => false
   end
 
   add_index "users", ["created_at"], :name => "index_users_on_created_at"

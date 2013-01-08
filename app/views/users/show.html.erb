@@ -1,6 +1,6 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
-	<aside class="span7" id="profile_info">
+	<aside class="span5" id="profile_info">
 		<aside class="span5">
 		<section>
 			<h2>
@@ -8,8 +8,18 @@
 			<%= @user.name %>
 			</h2>
 		</section>
+		</aside>
+
 	</aside>
-	</aside>
+	<div class="span7 photoposts_display">
+		<% if @user.photoposts.any? %>
+			<h3>Photos (<%= @user.photoposts.count %>)</h3>
+			<ol class="photoposts">
+				<%= render @photoposts %>
+			</ol>
+			<%= will_paginate @photoposts %>
+		<% end %>
+	</div>
 	<aside class="span5" id="right_u">
 
 		Right sidebar

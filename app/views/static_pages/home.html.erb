@@ -1,36 +1,50 @@
 <% provide(:title, ' ') %>
-<div class="row center" id="main-section">
-	<div class="span6" id="main-section-image-display">
-		<%= image_tag("gammanation.jpg", alt: "gammanation") %>
+<% if logged_in? %>
+	<div class="row">
+		<aside class="span4">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section>
+		</aside>
 	</div>
+		<section>
+				<%= render 'shared/photopost_form' %>
+			</section>
+	
+	<% else %>
+			<div class="row center" id="main-section">
+				<div class="span6" id="main-section-image-display">
+					<%= image_tag("gammanation.jpg", alt: "gammanation") %>
+				</div>
 
-	<div class="span6" id="main-section-welcome">
-		<h3>Meet Findle Share photos in style</h3>
-		<p>		
-				Findle is the perfect tool for instantly sharing your photos with friends.
-				It's fun, fast and easy to share your daily life through snapshots.
-				Sign up for free today to get started!
-		</p>
-		<p/><%= link_to 'Sign up Now!', signup_path, class: "btn btn-primary" %>
+				<div class="span6" id="main-section-welcome">
+					<h3>Meet Findle Share photos in style</h3>
+					<p>		
+							Findle is the perfect tool for instantly sharing your photos with friends.
+							It's fun, fast and easy to share your daily life through snapshots.
+							Sign up for free today to get started!
+					</p>
+					<p/><%= link_to 'Sign up Now!', signup_path, class: "btn btn-primary" %>
 
-	</div>
-</div>
+				</div>
+			</div>
 <hr/>
-<div class="row center" id="tour-section">
-	<div class="span12">
+		<div class="row center" id="tour-section">
+			<div class="span12">
 
-	</div>
-	<hr/>
-</div>
+			</div>
+			<hr/>
+		</div>
 
-<div class="row center" id="popular">
-	<div class="span4" id="popular-avatars">
-		popular avatars display goes here....
-	</div>
+		<div class="row center" id="popular">
+			<div class="span4" id="popular-avatars">
+				popular avatars display goes here....
+			</div>
 
-	<div class="span8" id="random-avatars">
-		random popular image display goes here...
+			<div class="span8" id="random-avatars">
+				random popular image display goes here...
 
-	</div>
+			</div>
 
-</div>
+		</div>
+<% end %>

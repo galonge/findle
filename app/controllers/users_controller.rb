@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @photoposts = @user.photoposts.paginate(page: params[:page])
   end
 
 
@@ -58,12 +59,7 @@ class UsersController < ApplicationController
   end
   private
 
-        def logged_in_user
-          unless logged_in?
-            store_location
-            redirect_to login_path, notice: "Please log in first."
-          end
-        end
+       
 
 
         def correct_user
