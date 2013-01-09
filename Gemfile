@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
+
 gem 'sass-rails'
+gem "compass-rails"
 gem 'bootstrap-sass'
 
 gem 'rails', '3.2.1'
@@ -22,14 +24,11 @@ end
 # in production environments by default.
 
 #downgradding sass for heroku
-
 group :assets do
-  gem 'coffee-rails'
-  gem 'uglifier'
-  
-  #gem 'sass-rails'
-  #gem 'bootstrap-sass'
+    gem 'coffee-rails', '~> 3.2.1'
+    gem 'uglifier', '>= 1.0.3'
 end
+
 
 
 
@@ -41,8 +40,6 @@ end
 #end
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
-
-  gem 'uglifier'
 
 
 gem 'jquery-rails'
