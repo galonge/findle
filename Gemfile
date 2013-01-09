@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sass-rails'
-gem "compass-rails"
-gem 'bootstrap-sass'
+
 
 gem 'rails', '3.2.1'
 gem 'faker', '1.0.1'
@@ -23,6 +21,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 
+gem 'sass-rails',   '~> 3.2.3'
+gem 'bootstrap-sass'
 #downgradding sass for heroku
 group :assets do
     gem 'coffee-rails', '~> 3.2.1'
