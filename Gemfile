@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
+gem 'sass-rails'
+gem 'bootstrap-sass'
 
 gem 'rails', '3.2.1'
 gem 'faker', '1.0.1'
 #gem 'wdm', '0.0.3'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'sass-rails'
-gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -22,10 +22,16 @@ end
 # in production environments by default.
 
 #downgradding sass for heroku
+
 group :assets do
+  gem 'coffee-rails'
+  gem 'uglifier'
+  
   #gem 'sass-rails'
   #gem 'bootstrap-sass'
 end
+
+
 
 
 # former gems for asset
@@ -36,7 +42,7 @@ end
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 
 
 gem 'jquery-rails'
